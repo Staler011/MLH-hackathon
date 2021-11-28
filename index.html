@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Occasionator</title>
+	<link rel="stylesheet" type="text/css" href="./assets/style.css" />
+	<script defer type="text/javascript" src="./src/index.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+	<script type="text/javascript">
+		(function() {
+		emailjs.init("user_YURUYwTaCWnST7CBoFniH");
+		})();
+	</script>
+</head>
+
+<body>
+	<div class="parent">
+		<div class="title-div">
+			<img src="./assets/logo.png" alt="Occasionator Logo">
+		</div>
+
+		<div class="nav-div">
+			<button id="loginBtn">Log In</button>
+			<button id="signupBtn">Sign Up</button>
+			<button id="logoutBtn" style="display:none">Logout</button>
+			<button id="editUserBtn" style="display:none">Edit User</button>
+			<select name="occasion" id="occasion-select" class="emily">
+				<option value="">Occasion</option>
+				<option value="birthday">🎂 Birthday</option>
+				<option value="christmas">🎅🏼 Christmas</option>
+				<option value="fathers">👨 Father's Day</option>
+				<option value="hanukkah">😊 Thanks Giving</option>
+				<option value="holidays">🎁 Happy Holidays</option>
+				<option value="mothers">👩 Mother's Day</option>
+				<option value="valentines">💘 Valentine's Day</option>
+			</select><br>
+			<div id="glogo"><a href="https://github.com/rtetelbaum/occasionator-frontend" target="_blank"><img src="./assets/github.png" alt="GitHub"></a></div>
+		</div>
+
+		<div class="card-div">
+			<div id="prev">&#10094;</div>
+			<div id="next">&#10095;</div>
+			<img src="https://i.ibb.co/tMvFC9k/holidays01.jpg" alt="holidays01">
+			<img src="https://i.ibb.co/YcW6FSL/holidays02.jpg" alt="holidays02">
+			<img src="https://i.ibb.co/ynbWpNd/holidays03.jpg" alt="holidays03">
+			<img src="https://i.ibb.co/Fh8sVqg/holidays04.jpg" alt="holidays04">
+			<img src="https://i.ibb.co/1mT2PXG/holidays05.jpg" alt="holidays05">
+			<img src="https://i.ibb.co/bLsDHz4/holidays06.jpg" alt="holidays06">
+			<img src="https://i.ibb.co/0tTTSSN/holidays07.jpg" alt="holidays07">
+			<img src="https://i.ibb.co/7CnLVLg/holidays08.jpg" alt="holidays08">
+		</div>
+
+		<div class="main-div">
+			
+			<form id="login-form" autocomplete="off" style="display:none" class="pink bold">
+				<h3>Log In</h3>
+				<table>
+					<tr>
+						<td><label for="email"> Email</label></td>
+						<td><input type="email" name="email" placeholder="name@example.com" /></td>
+					</tr>
+				</table><br>
+				<input type="submit" value="Log In" />
+			</form>
+
+			<form id="signup-form" autocomplete="off" style="display:none" class="pink bold">
+				<h3>Sign Up</h3>
+				<table>
+					<tr>
+						<td><label for="email"> Email</label></td>
+						<td><input type="email" name="email" placeholder="name@example.com" /></td>
+					</tr>
+					<tr>
+						<td><label for="first_name">First Name</label></td>
+						<td><input type="first_name" name="first_name" placeholder="Jane" /></td>
+					</tr>
+					<tr>
+						<td><label for="last_name">Last Name</label></td>
+						<td><input type="last_name" name="last_name" placeholder="Doe" /></td>
+					</tr>
+				</table><br>
+				<input type="submit" value="Sign Up" />
+			</form>
+
+			<form id="edit-user-form" autocomplete="off" style="display:none" class="pink bold">
+				<h3>Edit User</h3>
+				<table>
+					<tr>
+						<td><label for="email"> Email Address:</label></td>
+						<td><input type="email" name="email" placeholder="name@example.com" /></td>
+					</tr>
+					<tr>
+						<td><label for="first_name">First Name:</label></td>
+						<td><input type="first_name" name="first_name" placeholder="Jane" /></td>
+					</tr>
+					<tr>
+						<td><label for="last_name">Last Name:</label></td>
+						<td><input type="last_name" name="last_name" placeholder="Doe" /></td>
+					</tr>
+				</table><br>
+				<input type="submit" value="Save User Changes" />
+			</form><br>
+			<button id='deleteUserBtn' style="display:none">Delete Account</button><br>
+
+			<div id="reminderH3Div" style="display:none"></div>
+			<ol id="reminderOl" style="display:none" class="pink">
+			</ol>
+
+			<button id="deleteReminderBtn" style="display:none">Delete Reminder</button>
+
+			<form id='editReminderForm' autocomplete="off" style="display:none" class="pink">
+				<table>
+					<tr>
+						<td><label for="text">Reminder:</label></td>
+						<td><input type="text" name="text" /> </td>
+					</tr>
+				</table>
+				<input type="submit" value="Update Reminder" /><br>
+			</form>
+
+			<form id="reminder-form" autocomplete="off" style="display:none" class="pink">
+				<table>
+					<tr>
+						<td><label for="text">Reminder:</label></td>
+						<td><input type="text" name="text" placeholder="New Reminder" /></td>
+					</tr>
+				</table>
+				<input type="submit" value="Create" /><br>
+			</form>
+
+			<img id="card-image" src="https://i.ibb.co/ynbWpNd/holidays03.jpg" alt="Greeting Card" />
+	
+			<h1 id="mainDivH1" class="emily pink bold underline">Send a Card!</h1>
+
+			<h3 id="mainDivH3" class="pink">Please Log In to Send a Card</h3>
+
+			<form id="email-form" autocomplete="off" style="display:none" class="pink bold">
+				<table>
+					<tr>
+						<td><label for="recipient">Recipient Email: </label></td>
+						<td><input type="email" name="recipient" placeholder="name@example.com" /></td>
+					</tr>
+					<tr>
+						<td><label for="sender_email">Sender Email: </label></td>
+						<td><input type="email" name="sender_email" placeholder="name@example.com" /></td>
+					</tr>
+					<tr>
+						<td><label for="sender">Sender Name: </label></td>
+						<td><input type="text" name="sender" placeholder="John Doe" /></td>
+					</tr>
+					<tr>
+						<td><label for="subject">Subject: </label></td>
+						<td><input type="text" name="subject" placeholder="Happy Birthday Grandma!" /></td>
+					</tr>
+					<tr>
+						<td><label for="note">Note: </label></td>
+						<td><textarea name="note" form="email-form" placeholder="Enter note here..."></textarea></td>
+					</tr>
+				</table>
+				<input type="submit" value="Send" />
+			</form>
+
+			<div id="cardH3Div" style="display:none"></div>
+
+			<div id="userCardsDiv"></div>
+		
+
+			<div id="footerDiv">
+				<footer class="pink">
+					Occasionator Copyright (c) 2020. A Lee Michaeli & Roman Tetelbaum Project <a href="https://github.com/rtetelbaum/occasionator-frontend" target="_blank"><img src="./assets/github.png" alt="GitHub"></a>
+				</footer>
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>
