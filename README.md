@@ -1,1 +1,2 @@
-## Occasionator - Greet you loved ones 
+## Greeting application
+
